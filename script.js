@@ -26,17 +26,16 @@ month[10] = "November";
 month[11] = "December";
 const monthString = month[date.getMonth()];
 
-
-
 const day = date.getDate();
 
 document.getElementById("currentDay").innerHTML = dayOfWeek + ", " + monthString + " " + day;
 
 $(document).ready(function() {
     $(".saveBtn").on('click', function() {
-        let time  = docuemnt.getElementsByClassName('time-block').attr('id');
-        let details = document.getElementsByClassName('description').val();
+        let time  = $(this).parent().attr("id");
+        let details = $(this).siblings('.description').val();
         localStorage.setItem(time, details);
+        console.log(details);
     });
 
     function colorCode() {
