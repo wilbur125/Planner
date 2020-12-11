@@ -39,14 +39,23 @@ $(document).ready(function() {
     });
 
     function colorCode() {
-        let currentHour = date.getHours();
-        
+        let currentHour = 11;
+        console.log("wut",currentHour);
         $(".time-block").each(function() {  
             let timeSlot = parseInt($(this).attr('id'));
             console.log(timeSlot);
 
-            
+            if (currentHour === timeSlot) {
+                $(this).addClass("present");
+            } else if (currentHour < timeSlot) {
+                $(this).addClass('future');
+                $(this).removeClass('present');
+            } else {
+                $(this).addClass("past");
+                $(this).removeClass("present");
+                $(this).removeClass("future");
 
+            }
         })
     }
     colorCode();
