@@ -59,6 +59,13 @@ $(document).ready(function() {
         })
     }
     colorCode();
+
+    const timeSlots = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
+
+    for (i = 0; i < timeSlots.length; i++) {
+        $('body').append(localStorage.getItem(localStorage.key(i)));
+    }
+
 })
 
 
