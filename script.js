@@ -11,7 +11,7 @@ weekday[5] = "Friday";
 weekday[6] = "Saturday";
 const dayOfWeek = weekday[date.getDay()];
 
-const month = new Array();
+const month = new Array(12);
 month[0] = "January";
 month[1] = "February";
 month[2] = "March";
@@ -26,6 +26,32 @@ month[10] = "November";
 month[11] = "December";
 const monthString = month[date.getMonth()];
 
+
+
 const day = date.getDate();
 
 document.getElementById("currentDay").innerHTML = dayOfWeek + ", " + monthString + " " + day;
+
+$(document).ready(function() {
+    $(".saveBtn").on('click', function() {
+        let time  = docuemnt.getElementsByClassName('time-block').attr('id');
+        let details = document.getElementsByClassName('description').val();
+        localStorage.setItem(time, details);
+    });
+
+    function colorCode() {
+        let currentHour = date.getHours();
+        
+        $(".time-block").each(function() {  
+            let timeSlot = parseInt($(this).attr('id'));
+            console.log(timeSlot);
+
+            
+
+        })
+    }
+    colorCode();
+})
+
+
+
